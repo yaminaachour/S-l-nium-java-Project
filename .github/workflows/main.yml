@@ -16,3 +16,5 @@ jobs:
           distribution: "temurin"
       - uses: browser-actions/setup-chrome@latest
       - run: mvn clean test
+      - run: allure serve allure-results
+
