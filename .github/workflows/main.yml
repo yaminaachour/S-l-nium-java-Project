@@ -16,8 +16,6 @@ jobs:
           distribution: "temurin"
       - uses: browser-actions/setup-chrome@latest
       - run: mvn clean test
-      
-      
       - name: Generate Allure Report
         run: mvn allure:report
 
@@ -36,3 +34,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/allure-maven
+      
+    
