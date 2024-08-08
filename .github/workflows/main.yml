@@ -19,8 +19,8 @@ jobs:
       - name: Generate Allure Report
         run: mvn allure:report
 
-      - name: Serve Allure Report
-        run: mvn allure:serve &
+      - name: List target directory
+        run: ls -R target/
 
       - name: Upload Allure Report as Artifact
         uses: actions/upload-artifact@v3
@@ -32,6 +32,8 @@ jobs:
         if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/site/allure-maven
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/allure-maven
       
